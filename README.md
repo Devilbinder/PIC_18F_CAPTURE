@@ -1,4 +1,3 @@
-# Code Coming Soom
 #PIC Capture and Timer 3
 This demonstrates how to setup Capture mode with Timer 3 and generate interrupts to time the time between button presses. Using the XC8 compiler with MPLAB X and a PIC18F4520.
 
