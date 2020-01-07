@@ -1,5 +1,5 @@
 #include <xc.h>
-#include <p18f4520.h>
+#include <pic18f4520.h>
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -10,8 +10,8 @@
 #define TIME_PER_OVERFLOW   (65535u) // us
 #define TIME_PER_TICK       (1u) // us
 
-void interrupt high_isr(void);
-void interrupt low_priority low_isr(void);
+void __interrupt() high_isr(void);
+void __interrupt(low_priority) low_isr(void);
 
 typedef struct{
     uint8_t ccpL;
@@ -85,7 +85,7 @@ void main(void){
 
 
 
-void interrupt high_isr(void){
+void __interrupt() high_isr(void){
     INTCONbits.GIEH = 0;
     if(PIR2bits.CCP2IF == 1){
         cap_overflow_tmr3 = overflow_tmr3;
@@ -98,7 +98,7 @@ void interrupt high_isr(void){
     INTCONbits.GIEH = 1;
 }
 
-void interrupt low_priority low_isr(void){
+void __interrupt(low_priority) low_isr(void){
     INTCONbits.GIEH = 0;
     if(PIR2bits.TMR3IF == 1){
         overflow_tmr3++;
