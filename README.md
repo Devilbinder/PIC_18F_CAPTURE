@@ -11,6 +11,9 @@ This demonstrates how to setup Capture mode with Timer 3 and generate interrupts
 Shekels: 
 https://www.paypal.me/bindertronics9/5
 
+Patreon:
+https://www.patreon.com/BinderTronics
+
 Bitcoin: 
 19nohZzWXxVuZ9tZvw8Pvhajt5khG5mspW
 
